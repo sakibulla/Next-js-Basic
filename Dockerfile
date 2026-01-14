@@ -11,6 +11,9 @@ RUN npm ci --only=production
 # Copy application files
 COPY . .
 
+# Copy production environment file
+COPY .env.production .env.local
+
 # Build Next.js
 RUN npm run build
 

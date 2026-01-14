@@ -13,8 +13,6 @@ export default function ItemDetailsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-
   // Fetch item details
   useEffect(() => {
     if (params.id) {
@@ -24,7 +22,7 @@ export default function ItemDetailsPage() {
 
   const fetchItemDetails = async () => {
     try {
-      const response = await fetch(`${API_URL}/items/${params.id}`);
+      const response = await fetch(`/api/items/${params.id}`);
       const data = await response.json();
       
       if (data.success) {

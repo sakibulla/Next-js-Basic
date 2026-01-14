@@ -11,8 +11,6 @@ export default function ItemsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-
   // Fetch items from API
   useEffect(() => {
     fetchItems();
@@ -20,7 +18,7 @@ export default function ItemsPage() {
 
   const fetchItems = async () => {
     try {
-      const response = await fetch(`${API_URL}/items`);
+      const response = await fetch('/api/items');
       const data = await response.json();
       
       if (data.success) {

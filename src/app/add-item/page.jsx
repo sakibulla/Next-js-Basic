@@ -16,8 +16,6 @@ export default function AddItemPage() {
   });
   const [loading, setLoading] = useState(false);
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-
   // Handle input changes
   const handleChange = (e) => {
     setFormData({
@@ -32,7 +30,7 @@ export default function AddItemPage() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${API_URL}/items`, {
+      const response = await fetch('/api/items', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
