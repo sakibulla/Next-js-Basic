@@ -15,7 +15,7 @@ COPY . .
 RUN npm run build
 
 # Expose ports
-EXPOSE 3000 5000
+EXPOSE 8080 5000
 
 # Start both servers
-CMD ["sh", "-c", "node server/index.js & npm start"]
+CMD ["sh", "-c", "API_PORT=5000 node server/index.js & npm start"]
